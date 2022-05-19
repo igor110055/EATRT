@@ -170,7 +170,7 @@ def mail(text,PN):
     msg =  MIMEText(text)
     msg['Subject'] = PN + str(now)
 
-    s.sendmail('pedrojang777@gmail.com','peter000520@naver.com',msg.as_string())
+    s.sendmail('pedrojang777@gmail.com','gangkihun@daum.net',msg.as_string())
 
     s.quit()
 
