@@ -286,8 +286,8 @@ def SellMethod(i,n):
         kk = kk - 1
     Condition2 = ls_close[i+4] > ls_opens[i+4] and ls_close[i+5] < ls_opens[i+5] and  SP == False # 판포가 양봉이고 결포가 음봉인가
     Condition3 = ls_ochi[i+4] - (ls_ochi[i+4] - ST)*n > ls_oclo[i+5]  and ST < ls_oclo[i+5] and ls_bolhigh3[i+5] > ls_close[i+5] # 변동성 돌파 전략 사용, 과도한 반대포지션 방지, 결포가 bol3윗봉 아레로 내려왔는가 ls_ochi[i+4] - (ls_ochi[i+4] - ls_oclo[i+4])*n > ls_oclo[i+5]  and ls_oclo[i+4] < ls_oclo[i+5] and ls_bolhigh3[i+5] > ls_close[i+5] # 변동성 돌파 전략 사용, 과도한 반대포지션 방지, 결포가 bol3윗봉 아레로 내려왔는가 
-    Condition4 = ls_opens[i+2] < ls_close[i+2] and ls_opens[i+3] < ls_close[i+3] and ls_opens[i+4] < ls_close[i+4] and ls_oclo[i+4] > ls_oclo[i+5] and LP == True
-    Final_Condition = Condition1 == True and Condition2 == True and Condition3 == True or (LP == True and ls_bolhigh[i+5] < ls_high[i+5]) #or Condition4
+    Condition4 = ls_ochi[i+4] > ls_bolhigh4[i+4] and ls_opens[i+4] < ls_close[i+4] and ls_opens[i+5] > ls_close[i+5] and LP == False and SP == False
+    Final_Condition = Condition1 == True and Condition2 == True and Condition3 == True or (LP == True and ls_bolhigh[i+5] < ls_high[i+5]) or Condition4
     return Final_Condition
 
 # 일반 숏
@@ -303,8 +303,8 @@ def BuyMethod(i,n):
         kk = kk - 1
     Condition2 = ls_close[i+4] < ls_opens[i+4] and ls_close[i+5] > ls_opens[i+5] and LP == False # 판포가 음봉이고 결포가 양봉인가 
     Condition3 = ls_oclo[i+4] + (ST - ls_oclo[i+4])*n < ls_ochi[i+5]  and ST > ls_ochi[i+5] and ls_bollow3[i+5] < ls_close[i+5] # 변동성 돌파 전략 사용, 과도한 반대 봉에서의 반대 포지션 방지, 결포가 bol3 아래봉 위로 올라왔는가 
-    Condition4 = ls_opens[i+2] > ls_close[i+2] and ls_opens[i+3] > ls_close[i+3] and ls_opens[i+4] > ls_close[i+4] and ls_ochi[i+4] < ls_ochi[i+5] and SP == True
-    Final_Condition = Condition1 == True and Condition2 == True and Condition3 == True or (SP == True and ls_bollow[i+5] > ls_low[i+5]) #or Condition4
+    Condition4 = ls_oclo[i+4] < ls_bollow4[i+4] and ls_opens[i+4] > ls_close[i+4] and ls_opens[i+5] < ls_close[i+5] and SP == False and LP == False
+    Final_Condition = Condition1 == True and Condition2 == True and Condition3 == True or (SP == True and ls_bollow[i+5] > ls_low[i+5]) or Condition4
     return Final_Condition 
 
 # 일반 롱
