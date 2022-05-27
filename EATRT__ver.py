@@ -379,12 +379,12 @@ while ki < len(ls_opens):
         ls_ochi.append(ls_opens[ki])
         ls_oclo.append(ls_close[ki])
     ki = ki + 1
-ENDtime = datetime(1,1,1,9,30) - datetime(1,1,1,9,30)
+ENDtime = datetime.now() - (datetime(1,1,1,10) - datetime(1,1,1,9))
 i = 0
 PET = 0
-BDT = datetime(1,1,1,9,30) - datetime(1,1,1,9,30)
-BDCT = datetime(1,1,1,9,30) - datetime(1,1,1,9,30)
-BDET = datetime(1,1,1,9,30) - datetime(1,1,1,9,30) 
+BDT = datetime.now() - (datetime(1,1,1,10) - datetime(1,1,1,9))
+BDCT = (datetime(1,1,1,9,5) - datetime(1,1,1,9))
+BDET = datetime.now() - (datetime(1,1,1,10) - datetime(1,1,1,9)) + (datetime(1,1,1,9,5) - datetime(1,1,1,9))*3
 proF = 1
 proFP = 1
 MLT = -3
